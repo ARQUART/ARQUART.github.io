@@ -1,0 +1,44 @@
+
+* {
+  margin: 0;
+  padding: 0;
+}
+body {
+    font-family: Montserrat, sans-serif;
+    inset: 0;
+
+    
+  }
+  .arq{
+    height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+  }
+  html, body {
+    overflow: hidden;
+  }
+  .navbar-brand {
+    background-image: url("/pin/assets/img/ico.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 48px;
+    height: 48px;
+  }
+  
+  .navbar-nav .nav-item:hover {
+    background-color: rgba(180, 190, 203, 0.4);
+  }
+  
+  .footer {
+    display: block;
+    bottom: 0;
+    width: 100%; /* Footer arkaplan rengi */
+    color: white; /* Footer metin rengi */
+    text-align: center;
+    padding: 1rem;
+  }
+ #next{
+  font-size:20px;
+ }

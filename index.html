@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!--=============== FAVICON ===============-->
+    <link
+      rel="shortcut icon"
+      href="assets/img/favicon.png"
+      type="image/x-icon"
+    />
+
+    <!--=============== REMIX ICONS ===============-->
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+
+    <!--=============== CSS ===============-->
+    <link rel="stylesheet" href="assets/css/styles.css" />
+
+    <title>Arif Emrullah Durmaz - Web cv</title>
+  </head>
+  <body>
+    <!--=============== HEADER ===============-->
+    <header class="profile container">
+      <!-- Theme button -->
+      <i class="ri-moon-line change-theme" id="theme-button"></i>
+
+      <div class="profile__container grid">
+        <div class="profile__data">
+          <div class="profile__border">
+            <div class="profile__perfil">
+              <!-- Insert your image, according to the example size of the portfolio -->
+              <img src="assets/img/perfil.png" alt="" />
+            </div>
+          </div>
+
+          <h2 class="profile__name">Arif Durmaz</h2>
+          <h3 class="profile__profession">Web Developer</h3>
+
+          <ul class="profile__social">
+            <a
+              href="https://www.instagram.com/arfdurmaz/"
+              target="_blank"
+              class="profile__social-link"
+            >
+              <i class="ri-instagram-line"></i>
+            </a>
+            <a
+              href="https://www.linkedin.com/in/arquart/"
+              target="_blank"
+              class="profile__social-link"
+            >
+              <i class="ri-linkedin-box-line"></i>
+            </a>
+            <a
+              href="https://github.com/ARQUART"
+              target="_blank"
+              class="profile__social-link"
+            >
+              <i class="ri-github-line"></i>
+            </a>
+          </ul>
+        </div>
+
+        <div class="profile__buttons">
+          <!-- Insert your CV -->
+          <a download="" href="assets/pdf/arq.pdf" class="button">
+            CV'mi İNDİR <i class="ri-download-line"></i>
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <!--=============== MAIN ===============-->
+    <main class="main">
+      <section class="filters container">
+        <!--=============== FILTERS TABS ===============-->
+        <ul class="filters__content">
+          <button
+            class="filters__button filter-tab-active"
+            data-target="#projects"
+          >
+            Projeler
+          </button>
+          <button class="filters__button" data-target="#skills">
+            Yetenekler
+          </button>
+        </ul>
+
+        <div class="filters__sections">
+          <!--=============== PROJECTS ===============-->
+          <div
+            class="projects__content grid filters__active"
+            data-content
+            id="projects"
+          >
+            <!-- Insert your image in a rectangular format (Ex: 600 x 400, 1000 x 800, 1200 x 1000, etc) -->
+          
+            <article class="projects__card">
+              <img src="/assets/img/rog.png" alt="" class="projects__img" />
+
+              <div class="projects__modal">
+                <div>
+                  <span class="projects__subtitle">WEB</span>
+                  <h3 class="projects__title">MULTİMEDİA VİZE</h3>
+                  <a
+                    href="/vize/index.html"
+                    target="_blank"
+                    class="projects__button button button__small"
+                  >
+                    <i class="ri-link"></i>
+                  </a>
+                </div>
+              </div>
+            </article>
+            <article class="projects__card">
+              <img src="assets/img/project1.jpg" alt="" class="projects__img" />
+
+              <div class="projects__modal">
+                <div>
+                  <span class="projects__subtitle">Web</span>
+                  <h3 class="projects__title">Berber Randevu sitesi</h3>
+                  <a
+                    href="nura/index.html"
+                    target="_blank"
+                    class="projects__button button button__small"
+                  >
+                    <i class="ri-link"></i>
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <article class="projects__card">
+              <img src="assets/img/project2.jpg" alt="" class="projects__img" />
+
+              <div class="projects__modal">
+                <div>
+                  <span class="projects__subtitle">Web</span>
+                  <h3 class="projects__title">Tente Katalog sitesi</h3>
+                  <a
+                    href="http://arquart.rf.gd/elit"
+                    target="_blank"
+                    class="projects__button button button__small"
+                  >
+                    <i class="ri-link"></i>
+                  </a>
+                </div>
+              </div>
+            </article>
+
+            <article class="projects__card">
+              <img src="assets/img/project3.jpg" alt="" class="projects__img" />
+
+              <div class="projects__modal">
+                <div>
+                  <span class="projects__subtitle">Web</span>
+                  <h3 class="projects__title">Restorant Menü</h3>
+                  <a
+                    href="ness/index.html"
+                    target="_blank"
+                    class="projects__button button button__small"
+                  >
+                    <i class="ri-link"></i>
+                  </a>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <!--=============== SKILLS ===============-->
+          <div class="skills__content grid" data-content id="skills">
+            <div class="skills__area">
+              <h3 class="skills__title">Frontend Developer</h3>
+
+              <div class="skills__box">
+                <div class="skills__group">
+                  <div class="skills__data">
+                    <i class="fa-brands fa-html5"></i>
+
+                    <div>
+                      <h3 class="skills__name">HTML</h3>
+                      <span class="skills__level">Advanced</span>
+                    </div>
+                  </div>
+
+                  <div class="skills__data">
+                    <i class="fa-brands fa-css3-alt"></i>
+
+                    <div>
+                      <h3 class="skills__name">CSS</h3>
+                      <span class="skills__level">Advanced</span>
+                    </div>
+                  </div>
+                  <div class="skills__data">
+                    <i class="fa-brands fa-bootstrap"></i>
+
+                    <div>
+                      <h3 class="skills__name">Bootstrap</h3>
+                      <span class="skills__level">Advanced</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="skills__group">
+                  <div class="skills__data">
+                    <i class="fa-brands fa-js"></i>
+
+                    <div>
+                      <h3 class="skills__name">JavaScript</h3>
+                      <span class="skills__level">Basic</span>
+                    </div>
+                  </div>
+                  <div class="skills__data">
+                    <i class="fa-solid fa-terminal"></i>
+
+                    <div>
+                      <h3 class="skills__name">Svelte</h3>
+                      <span class="skills__level">Advance</span>
+                    </div>
+                  </div>
+
+                  <div class="skills__data">
+                    <i class="fa-brands fa-git-alt"></i>
+
+                    <div>
+                      <h3 class="skills__name">Git</h3>
+                      <span class="skills__level">Advanced</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="skills__area">
+              <h3 class="skills__title">Backend Developer</h3>
+
+              <div class="skills__box">
+                <div class="skills__group">
+                  <div class="skills__data">
+                    <i class="fa-brands fa-php"></i>
+
+                    <div>
+                      <h3 class="skills__name">PHP</h3>
+                      <span class="skills__level">Basic</span>
+                    </div>
+                  </div>
+
+                  <div class="skills__data">
+                    <i class="fa-solid fa-database"></i>
+
+                    <div>
+                      <h3 class="skills__name">MySQL</h3>
+                      <span class="skills__level">Basic</span>
+                    </div>
+                  </div>
+                  
+                  <div class="skills__data">
+                    <i class="fa-solid fa-terminal"></i>
+
+                    <div>
+                      <h3 class="skills__name">C#</h3>
+                      <span class="skills__level">Basic</span>
+                    </div>
+                  </div>
+                  
+                </div>
+
+                <div class="skills__group">
+                  <div class="skills__data">
+                    <i class="fa-brands fa-python"></i>
+
+                    <div>
+                      <h3 class="skills__name">Python</h3>
+                      <span class="skills__level">Advance</span>
+                    </div>
+                  </div>
+                  <div class="skills__data">
+                    <i class="fa-brands fa-golang"></i>
+
+                    <div>
+                      <h3 class="skills__name">Go</h3>
+                      <span class="skills__level">Basic</span>
+                    </div>
+                  </div>
+                  <div class="skills__data">
+                    <i class="fa-brands fa-node-js"></i>
+
+                    <div>
+                      <h3 class="skills__name">Node js</h3>
+                      <span class="skills__level">Advance</span>
+                    </div>
+                  </div>
+                  
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!--=============== FOOTER ===============-->
+    <footer class="footer container">
+      <span class="footer__copy"> &#169; ARQUART. All rigths reserved </span>
+    </footer>
+
+    <!--=============== SCROLLREVEAL ===============-->
+    <script src="assets/js/scrollreveal.min.js"></script>
+    <script src="https://kit.fontawesome.com/f529815734.js" crossorigin="anonymous"></script>
+
+    <!--=============== MAIN JS ===============-->
+    <script src="assets/js/main.js"></script>
+  </body>
+</html>

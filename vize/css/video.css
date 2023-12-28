@@ -1,0 +1,222 @@
+.video {
+    position: relative;
+    width: 50%;
+}
+
+.tool {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform-origin: center;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 50%;
+}
+
+.paused {
+    animation: pause 500ms forwards;
+}
+
+.paused i {
+    font-size: 60px;
+    color: #3b3b3b;
+}
+
+.resume {
+    animation: resume 500ms forwards;
+
+}
+
+.resume i {
+    font-size: 60px;
+    color: #3b3b3b;
+}
+
+.controls {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background: rgb(0, 0, 0);
+    background: linear-gradient(0deg, rgba(0, 0, 0, 1) 15%, rgba(34, 193, 195, 0) 100%);
+
+}
+
+#duration-box {
+    position: relative;
+    display: block;
+    margin-left: 1%;
+    width: 98%;
+
+}
+
+#vid-duration {
+    width: 100%;
+}
+
+.duration .text {
+    font-weight: 100;
+    font-size: 13px;
+}
+
+.duration i {
+    display: flex;
+    align-items: center;
+    font-size: 30px !important;
+    cursor: pointer;
+}
+
+#volume {
+    margin-left: 10px;
+    margin-right: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#volume i {
+    font-size: 20px !important;
+}
+
+.duration:hover #inp-volume {
+    width: 60px;
+}
+
+.duration:hover #inp-volume::-webkit-slider-thumb {
+    visibility: visible;
+}
+
+
+.controls .duration {
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    margin-bottom: 5px;
+}
+
+/* Range inputu şekillendirme */
+#inp-volume {
+    -webkit-appearance: none;
+    width: 0;
+    height: 4px;
+    border-radius: 8px;
+    background: #a0a0a0;
+    outline: none;
+    margin: 10px 5px;
+    transition: all ease 200ms;
+}
+
+/* Kaydırma çubuğunu özelleştirme */
+#inp-volume::-webkit-slider-thumb {
+    visibility: hidden;
+    -webkit-appearance: none;
+    appearance: none;
+    width: 13px;
+    height: 13px;
+    border-radius: 50%;
+    background: rgb(255, 255, 255);
+    cursor: pointer;
+}
+
+#vid-duration {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 3px;
+    border-radius: 8px;
+    background: #ddd;
+    outline: none;
+    margin: 10px 0;
+}
+
+/* Kaydırma çubuğunu özelleştirme */
+#vid-duration::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 13px;
+    height: 13px;
+    border-radius: 50%;
+    background: rgb(139, 139, 139);
+    cursor: pointer;
+}
+
+.properties {
+    margin-bottom: 5px;
+}
+
+.properties i {
+    font-size: 25px;
+    cursor: pointer;
+    transition: all ease 100ms;
+}
+
+.properties i:hover {
+    transform: scale(1.2);
+}
+
+@media screen and (max-width: 1200px) {
+    .video {
+        position: relative;
+        width: 100%;
+    }
+}
+
+
+@keyframes pause {
+    5% {
+        transform: translate(-50%, -50%) rotate(-25deg) scale(0.8);
+    }
+
+    15% {
+        transform-origin: center;
+        transform: translate(-50%, -50%) rotate(-25deg) scale(1.05);
+        opacity: 1;
+    }
+
+    40% {
+        opacity: .6;
+        transform: translate(-50%, -50%) scale(1.2);
+    }
+
+    65% {
+        transform: translate(-50%, -50%) rotate(25deg) scale(1.35);
+        opacity: .35;
+    }
+
+    90% {
+        transform: translate(-50%, -50%) scale(1.45);
+        opacity: .05;
+    }
+
+    100% {
+        transform: translate(-50%, -50%) rotate(0) scale(1.5);
+        opacity: 0;
+    }
+}
+
+@keyframes resume {
+    0% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(0.8);
+    }
+
+    40% {
+        transform: translate(-50%, -50%) scale(1.2);
+        opacity: .6;
+    }
+
+    50% {
+        opacity: .5 scale(1.3);
+    }
+
+    70% {
+        opacity: .3;
+    }
+
+    100% {
+        transform: translate(-50%, -50%) scale(1.5);
+        opacity: 0;
+    }
+
+}
