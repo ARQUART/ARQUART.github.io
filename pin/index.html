@@ -1,142 +1,326 @@
 <!DOCTYPE html>
 <html lang="tr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Pin kodu</title>
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="assets/bs/css/bootstrap.min.css">
-    <link rel="shortcut icon" href="assets/img/fav.png" type="image/x-icon">
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="assets/bs/css/bootstrap.min.css" />
+    <link rel="shortcut icon" href="assets/img/fav.png" type="image/x-icon" />
+
     <!--=============== REMIX ICONS ===============-->
-    <link href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css" rel="stylesheet">
-   
-</head>
-<body class="bg-dark">
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#"></a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ms-md-auto gap-2">
-          <li class="nav-item rounded">
-            <a class="nav-link active" aria-current="page" href="#"><i class="ri-pushpin-fill me-2"></i>PİN KODU</a>
-          </li>
-          <li class="nav-item rounded">
-            <a class="nav-link" href="../pin/matrix/index.html"><i class="ri-quill-pen-fill me-2"></i>İLİŞKİ MATRİXİ</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
-  <div class="vh-100 d-flex justify-content-center align-items-center">
-
-    <div id="liveAlertPlaceholder"></div>
-    <div class="container">
-      
-      <div class="row">
-        <div class="col-md-4"></div>
-        <div class="card text-center col-md-4 mt-3 col-sm-10 p-0">
-          <div class="card-body">
-            <h5 class="card-title" id="başlık">LÜTFEN DOĞUM TARİHİ GİRİNİZ</h5>
-            <input class="mt-2 mb-2" type="date" id="tarih">
-            <button class="learn-more hsp" >
-                <span class="circle" aria-hidden="true">
-
-                <span class="icon arrow "></span>
-                </span>
-                <span class="button-text" onclick="hesapla()">HESAPLA</span>
-              </button>
-              <div class="hidden" id="arq_yenile">
-              <button class="btn btn-dark" onclick="reverse()">YENİLE</button>
-            </div>
-              <div class="hidden" id="arq">
-              <div class="card card-body mt-1 ">
-            <p class="card-text pt-3 pb-1  " id="cevap"></p>
-          </div>
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  </head>
+  <body class="bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#"></a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-md-auto gap-2">
+            <li class="nav-item rounded">
+              <a class="nav-link active" aria-current="page" href="#"
+                ><i class="ri-pushpin-fill me-2"></i>PİN KODU</a
+              >
+            </li>
+            <li class="nav-item rounded">
+              <a class="nav-link" href="/matrix/index.html"
+                ><i class="ri-quill-pen-fill me-2"></i>İLİŞKİ MATRİXİ</a
+              >
+            </li>
+          </ul>
         </div>
+      </div>
+    </nav>
+
+    <div class="vh-100 d-flex justify-content-center align-items-center">
+      <div id="liveAlertPlaceholder"></div>
+      <div class="container">
+        <div class="row">
+          <div
+            class="card text-center col-12 col-md-8 col-lg-6 offset-md-2 offset-lg-3 mt-3 p-0"
+          >
             <div class="card-body">
-              <div class="hidden" id="arq-btn">
-              <!-- Button trigger modal -->
-              <button type="button" class="btn btn-dark"  data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                Hane Anlamları
+              <h5 class="card-title" id="başlık">
+                LÜTFEN DOĞUM TARİHİ GİRİNİZ
+              </h5>
+              <input class="mt-2 mb-2" type="date" id="tarih" />
+              <div class="container mt-1 hsp">
+                <button
+                  type="button"
+                  class="btn btn-outline-primary"
+                  data-toggle="tooltip"
+                  data-placement="bottom"
+                  title="İLERLE"
+                  onclick="hesapla()"
+                >
+                  <span class="button-text">HESAPLA</span>
                 </button>
               </div>
-  
-        <!-- Modal -->
-        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-          <div class="modal-dialog modal-dialog-scrollable">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="staticBackdropLabel">Hanelerin anlamları</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="modal-body">
-                <div class="card-header" id="arquart">
-                  <H5>ARQUART</H5>
-                </div>
-                  <div class="card card-body mt-1" >
-                    <h3>1 RAKAMI GÖRME</h3>
-                     Dışarıdan nasıl göründüğün hakkında bilgi veren birinci hanedeki hangi sayı ne anlama geliyor?
-                  </div>
-                  <div class="card card-body mt-1">
-                    <h3>2 RAKAMI DUYMA</h3>
-                    Sosyal çevrende nasıl algılandığın ve ses tonun hakkında bilgi veren ikinci hanedeki sayılar neyi ifade eder, bakalım.
-                  </div>
-                  <div class="card card-body mt-1">
-                    <h3>3 RAKAMI TAT</h3>
-                    Dünyada nasıl var olmak istediğin ve bu doğrultuda yapabileceğin meslek seçimleri hakkında fikir veren üçüncü hanedeki hangi rakam ne demek?
-                  </div>
-                  <div class="card card-body mt-1">
-                    <h3>4 RAKAMI KOKU</h3>
-                    İş yapma biçimini gösteren dördüncü hanedeki hangi rakamın kişi üzerinde nasıl bir etkisi var, bakalım!
-                  </div>
-                  <div class="card card-body mt-1">
-                    <h3>5 RAKAMI DOKUNMA</h3>
-                    Öğrenilmesi gereken hayat dersi hakkındaki detayları gösteren beşinci hanedeki hangi sayı ne anlama geliyor?
-                  </div>
-                  <div class="card card-body mt-1">
-                    <h3>6 RAKAMI SEZGİ</h3>
-                    Şimdi kendini nasıl gördüğün yani içsel benliğin hakkında bilgi veren altıncı hanedeki sayıların anlamını keşfetme zamanı!
-                  </div>
-                  <div class="card card-body mt-1">
-                    <h3>7 RAKAMI RUH</h3>
-                    Şimdi kendini nasıl gördüğün yani içsel benliğin hakkında bilgi veren altıncı hanedeki sayıların anlamını keşfetme zamanı!
-                  </div>
-                  
-                  <div class="card card-body mt-1">
-                    <h3>8 RAKAMI YARADIUŞ</h3>
-                    Şimdi eyleme geçme tarzın hakkında fikir veren sekizinci hanedeki sayıların anlamını keşfetmeye ne dersin?
+              <div class="container mt-3">
+                <div class="ch1">
+                  <div class="form-check form-check-inline">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      id="checkbox1"
+                      onchange="toggleCheckbox(this)"
+                    />
+                    <label class="form-check-label" for="checkbox1">
+                      KISA YORUM
+                    </label>
                   </div>
 
-              <div class="modal-footer">
-                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                  <div class="form-check form-check-inline">
+                    <input
+                      class="form-check-input"
+                      type="checkbox"
+                      id="checkbox2"
+                      onchange="toggleCheckbox(this)"
+                    />
+                    <label class="form-check-label" for="checkbox2">
+                      UZUN YORUM
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <div class="hidden" id="arq_yenile">
+                <button class="btn btn-dark" onclick="reverse()">YENİLE</button>
+              </div>
+              <div class="hidden" id="arq">
+                <div class="card card-body mt-1">
+                  <p class="card-text pt-3 pb-1" id="cevap"></p>
+                </div>
+              </div>
+              <div class="card-body">
+                <div class="hidden" id="arq-btn">
+                  <button
+                    type="button"
+                    class="btn btn-dark"
+                    data-bs-toggle="modal"
+                    data-bs-target="#staticBackdrop"
+                  >
+                    Hane Anlamları
+                  </button>
+                </div>
+                <!-- Modal -->
+                <div
+                  class="modal fade"
+                  id="staticBackdrop"
+                  data-bs-backdrop="static"
+                  data-bs-keyboard="false"
+                  tabindex="-1"
+                  aria-labelledby="staticBackdropLabel"
+                  aria-hidden="true"
+                >
+                  <div class="modal-dialog modal-dialog-scrollable">
+                    <div class="modal-content text-white bg-dark">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="staticBackdropLabel">
+                          Hanelerin anlamları
+                        </h5>
+                        <button
+                          type="button"
+                          class="btn-close"
+                          data-bs-dismiss="modal"
+                          aria-label="Close"
+                        ></button>
+                      </div>
+                      <div class="modal-body">
+                        <div class="card-header text-white">
+                          <h5>ARQUART</h5>
+                        </div>
+                        <div class="card card-body text-white bg-dark mt-1">
+                          <h4>1 RAKAMI GÖRME</h4>
+                          Dışarıdan nasıl göründüğün hakkında bilgi veren
+                          birinci hanedeki hangi sayı ne anlama geliyor?
+                        </div>
+                        <div class="card card-body text-white bg-dark mt-1">
+                          <h4>2 RAKAMI DUYMA</h4>
+                          Sosyal çevrende nasıl algılandığın ve ses tonun
+                          hakkında bilgi veren ikinci hanedeki sayılar neyi
+                          ifade eder, bakalım.
+                        </div>
+                        <div class="card card-body text-white bg-dark mt-1">
+                          <h4>3 RAKAMI TAT</h4>
+                          Dünyada nasıl var olmak istediğin ve bu doğrultuda
+                          yapabileceğin meslek seçimleri hakkında fikir veren
+                          üçüncü hanedeki hangi rakam ne demek?
+                        </div>
+                        <div class="card card-body text-white bg-dark mt-1">
+                          <h4>4 RAKAMI KOKU</h4>
+                          İş yapma biçimini gösteren dördüncü hanedeki hangi
+                          rakamın kişi üzerinde nasıl bir etkisi var, bakalım!
+                        </div>
+                        <div class="card card-body text-white bg-dark mt-1">
+                          <h4>5 RAKAMI DOKUNMA</h4>
+                          Öğrenilmesi gereken hayat dersi hakkındaki detayları
+                          gösteren beşinci hanedeki hangi sayı ne anlama
+                          geliyor?
+                        </div>
+                        <div class="card card-body text-white bg-dark mt-1">
+                          <h4>6 RAKAMI SEZGİ</h4>
+                          Şimdi kendini nasıl gördüğün yani içsel benliğin
+                          hakkında bilgi veren altıncı hanedeki sayıların
+                          anlamını keşfetme zamanı!
+                        </div>
+                        <div class="card card-body text-white bg-dark mt-1">
+                          <h4>7 RAKAMI RUH</h4>
+                          Şimdi kendini nasıl gördüğün yani içsel benliğin
+                          hakkında bilgi veren altıncı hanedeki sayıların
+                          anlamını keşfetme zamanı!
+                        </div>
+
+                        <div class="card card-body text-white bg-dark mt-1">
+                          <h4>8 RAKAMI YARADILIŞ</h4>
+                          Şimdi eyleme geçme tarzın hakkında fikir veren
+                          sekizinci hanedeki sayıların anlamını keşfetmeye ne
+                          dersin?
+                        </div>
+                      </div>
+                      <div class="modal-footer">
+                        <button
+                          type="button"
+                          class="btn btn-danger"
+                          data-bs-dismiss="modal"
+                        >
+                          Close
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
-        </div>
-
       </div>
     </div>
 
+    <div class="bg-dark text-white">
+      <p class="text-center p-4 m-0">Powered by Arquart®</p>
+    </div>
+    <!-- Add your JavaScript links or scripts here -->
+    <div class="modalclose">
+      <div
+        class="modal fade"
+        id="deneme"
+        tabindex="-1"
+        role="dialog"
+        aria-labelledby="exampleModalCenterTitle"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLongTitle">
+                Veri Yönetimi ve İşleme
+              </h5>
+              <button
+                type="button"
+                class="close"
+                data-dismiss="modal"
+                aria-label="Close"
+                onclick="modalkapa()"
+              >
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body text-center">
+              Firmamızın internet sitesi, kullanıcılarımıza en iyi deneyimi
+              sunmak ve hizmetlerimizi etkili bir şekilde sunmak amacıyla
+              çeşitli veri yönetimi ve işleme süreçleri kullanmaktadır.<br />
+              <span class="color-danger">
+                ▷ Kullanıcı Bilgileri<br />
+                ▷ Çerezler (Cookies)<br />
+                ▷ Analitik Veri Toplama<br />
+                ▷ Güvenlik ve Veri Koruma: <br />
+                ▷ İşleme ve İletişim:<br />
+              </span>
+              Bu metin, internet sitemizin kullanıcı verilerini nasıl tuttuğunu
+              ve işlediğini açıklamaktadır. Kullanıcılarımızın gizliliğini
+              korumak ve şeffaf bir deneyim sunmak en üst önceliğimizdir.
+              Herhangi bir soru veya endişeniz varsa, lütfen İletişim
+              sayfamızdan bize ulaşın.
+            </div>
+            <div class="modal-body"></div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-dismiss="modal"
+                onclick="modalkapa()"
+              >
+                REDDET
+              </button>
+              <button
+                type="button"
+                onclick="modalkapa()"
+                class="btn btn-success"
+              >
+                KABUL ET
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
-  </div>
-
-  <div class="bg-dark text-white " >
-    <p class="text-center p-4 m-0">Powered by Arquart®</p>
-  </div>
-
-
-
-  
-
+    <div
+      class="modal fade"
+      id="yorum"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="exampleModalCenterTitle"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">YORUM</h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+              onclick="yorumkapa()"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body text-center"></div>
+          <div class="modal-body">
+            <p id="yorum_body"></p>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-dismiss="modal"
+              onclick="yorumkapa()"
+            >
+              KAPAT
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
   </body>
-    
 
-    <script src="assets/bs/js/bootstrap.min.js"></script>
-    <script src="assets/js/app.js"></script>
-
-
+  <script src="assets/bs/js/bootstrap.min.js"></script>
+  <script src="assets/js/app.js"></script>
 </html>

@@ -30,39 +30,51 @@
         </div>
       </div>
     </nav>
-    <div class="arq">
+    <div id="liveAlertPlaceholder"></div>
+  <div class="arq">
     <div class="container">
       <div class="row justify-content-center">
-        <div class="col-md-6">
+        <div class="col-12 col-md-8 col-lg-6   offset-md-0 offset-lg-0 ">
           <div class="card text-center">
             <div class="card-body">
               <div class="user1">
-              <h5 class="card-title" id="başlık">LÜTFEN DOĞUM TARİHİ GİRİNİZ</h5>
+              <h5 class="card-title" id="başlık">LÜTFEN KENDİ ADINIZI VE DOĞUM TARİHİZİ GİRİNİZ</h5>
+              <div class="name_input">
+                <div class="input-group flex-nowrap">
+                  <input type="text" class="form-control name_input_arq" placeholder="İsim" aria-label="Username" aria-describedby="addon-wrapping">
+                </div>
+              </div>
             <input class="mt-2 mb-2" type="date" id="date1" required="required">
             <button class="learn-more hsp" >
               <button type="button" class="btn btn-outline-primary" data-toggle="tooltip" data-placement="bottom" title="İLERLE" onclick="gec();"><i class="ri-arrow-right-s-line" id="next"></i></button>
               </div>
               <div class="user2 hidden">
-                <h5 class="card-title" id="başlık">Eş</h5>
+                <h5 class="card-title" id="başlık">LÜTFEN EŞİNİZİN ADINIZI VE DOĞUM TARİHİZİ GİRİNİZ</h5>
+                <div class="name_input">
+                  <div class="input-group flex-nowrap">
+                    <input type="text" class="form-control name_input_arq" placeholder="EŞİNİZİN ADI" aria-label="Username" aria-describedby="addon-wrapping">
+                  </div>
+                </div>
               <input class="mt-2 mb-2" type="date" id="date2">
               <button class="learn-more hsp" >
                 <button type="button" class="btn btn-outline-danger" data-toggle="tooltip" data-placement="bottom" title="GERİ DÖN" onclick="first();""><i class="ri-arrow-left-s-line" id="next"></i></button>
                 <button type="button" class="btn btn-outline-primary" data-toggle="tooltip" data-placement="bottom" title="hesapla" onclick="hesapla();"><i class="ri-arrow-right-s-line" id="next"></i></button>
                 </div>
-              <p class="cevap hidden"></p>
+              <p class="cevap hidden" id="cevap"></p>
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-    
-    
     <div class="bg-dark text-white">
       <div class="footer">
         <p class="m-0">Powered by Arquart®</p>
       </div>
     </div>
+  </div>
+    
+    
+   
     <script src="../assets/bs/js/bootstrap.min.js"></script>
     <script src="assets/js/app.js"></script>
 </body>
